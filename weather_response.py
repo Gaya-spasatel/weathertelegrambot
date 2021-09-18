@@ -29,7 +29,7 @@ def parse_weather(info, weather_codes):
             raise BadRequestException("No success")
     except KeyError:
         result = f"Location: {info['request']['query']}\n" \
-                 f"Current time: {info['current']['observation_time']}\n" \
+                 f"Current time: {info['location']['localtime']}\n" \
                  f"Temperature: {info['current']['temperature']}°C\n" \
                  f"Weather: {weather_codes[int(info['current']['weather_code'])]}\n" \
                  f"Wind speed and direction: {info['current']['wind_speed']} {info['current']['wind_dir']}\n"
